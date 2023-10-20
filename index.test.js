@@ -1,7 +1,15 @@
 import Ship from "./src";
 
-test("increas noOfHits in a ship", () => {
+test("increase noOfHits in a ship", () => {
   const newShip = new Ship(2);
   newShip.hit();
   expect(newShip.noOfHits).toBe(1);
+});
+
+test("check if ship is sunk", () => {
+  const newShip = new Ship(2);
+  newShip.hit();
+  newShip.hit();
+  newShip.isSunk();
+  expect(newShip.sunk).toBe(true);
 });
