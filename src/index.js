@@ -2,7 +2,6 @@ export default class Ship {
   constructor(length) {
     this.length = length;
     this.noOfHits = 0;
-    this.sunk = false;
   }
 
   hit() {
@@ -10,6 +9,7 @@ export default class Ship {
   }
 
   isSunk() {
-    if (this.length === this.noOfHits) this.sunk = true;
+    if (this.length === this.noOfHits) return true;
+    return false;
   }
 }
