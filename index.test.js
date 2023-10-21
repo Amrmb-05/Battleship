@@ -6,7 +6,7 @@ test("increase noOfHits in a ship", () => {
   expect(newShip.noOfHits).toBe(1);
 });
 
-test("check if ship is sunk", () => {
+test("return true if ship is sunk", () => {
   const newShip = new Ship(2);
   newShip.hit();
   newShip.hit();

@@ -3,7 +3,7 @@ import Gameboard from "./src/gameBoard";
 
 let newGame;
 let ship;
-beforeAll(() => {
+beforeEach(() => {
   newGame = new Gameboard();
 });
 describe("places ship in the specified coordinates and direction", () => {
@@ -38,11 +38,19 @@ describe("attacks a ship if its in the specified coordinates or records the coor
   });
 });
 
-test("check if all ships have been sunk", () => {
-  const ship1 = placeShip(0, 0, "horizontal", 1);
-  const ship2 = placeShip(0, 0, "vertical", 2);
+test("returns true if all ships have been sunk", () => {
+  const ship1 = newGame.placeShip(0, 0, "horizontal", 1);
+  const ship2 = newGame.placeShip(1, 0, "vertical", 2);
   ship1.hit();
   ship2.hit();
   ship2.hit();
   expect(newGame.allSunk()).toBe(true);
+});
+
+test("returns false if all ships have been sunk", () => {
+  const ship1 = newGame.placeShip(0, 0, "horizontal", 1);
+  const ship2 = newGame.placeShip(1, 0, "vertical", 2);
+  ship1.hit();
+  ship2.hit();
+  expect(newGame.allSunk()).toBe(false);
 });
