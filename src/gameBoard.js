@@ -19,5 +19,15 @@ export default class Gameboard {
         this.board[x - i][y] = ship;
       } else if (direction === "vertical") this.board[x][y + i] = ship;
     }
+    return ship;
+  }
+
+  receiveAttack(x, y) {
+    if (this.board[x][y] instanceof Ship) {
+      this.board[x][y].hit();
+      this.board[x][y] = "hit";
+    } else {
+      this.board[x][y] = "miss";
+    }
   }
 }
