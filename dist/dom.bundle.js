@@ -10,6 +10,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/dom.js":
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\n\nconsole.log(_game__WEBPACK_IMPORTED_MODULE_0__.playerOneBoard);\nfunction renderBoard(arr) {\n  const container = document.getElementById(\"container\");\n  const table = document.createElement(\"table\");\n  container.appendChild(table);\n\n  for (let i = 0; i < arr.length; i += 1) {\n    const tr = document.createElement(\"tr\");\n    table.appendChild(tr);\n    // document.appendChild;\n    for (let j = 0; j < arr.length; j += 1) {\n      const td = document.createElement(\"td\");\n      td.innerText = \"k\";\n      tr.appendChild(td);\n    }\n  }\n}\n\nrenderBoard(_game__WEBPACK_IMPORTED_MODULE_0__.playerOneBoard.board);\n\n\n//# sourceURL=webpack://battleship/./src/dom.js?");
+
+/***/ }),
+
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   computerBoard: () => (/* binding */ computerBoard),\n/* harmony export */   playerOneBoard: () => (/* binding */ playerOneBoard)\n/* harmony export */ });\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./player */ \"./src/player.js\");\n\n\nconst playerOne = new _player__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nconst computer = new _player__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nconst computerBoard = playerOne.enemyBoard;\n// computerBoard.placeShip(1, 5, \"horizontal\", 3);\n// computerBoard.placeShip(3, 8, \"horizontal\", 5);\n// computerBoard.placeShip(7, 2, \"horizontal\", 6);\n// computerBoard.placeShip(1, 4, \"horizontal\", 1);\n\nconst playerOneBoard = computer.enemyBoard;\n// playerOneBoard.placeShip(5, 3, \"horizontal\", 3);\n// playerOneBoard.placeShip(8, 3, \"horizontal\", 5);\n// playerOneBoard.placeShip(8, 7, \"horizontal\", 1);\n// playerOneBoard.placeShip(3, 3, \"horizontal\", 6);\n\n\n//# sourceURL=webpack://battleship/./src/game.js?");
+
+/***/ }),
+
 /***/ "./src/gameBoard.js":
 /*!**************************!*\
   !*** ./src/gameBoard.js ***!
@@ -100,7 +120,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/player.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/dom.js");
 /******/ 	
 /******/ })()
 ;

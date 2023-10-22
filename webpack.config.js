@@ -3,10 +3,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: {
     index: "./src/index.js",
     player: "./src/player.js",
     board: "./src/gameBoard.js",
+    dom: "./src/dom.js",
+    game: "./src/game.js",
   },
   devtool: "inline-source-map",
   plugins: [
