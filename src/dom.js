@@ -12,7 +12,7 @@ function renderBoard(arr) {
     // document.appendChild;
     for (let j = 0; j < arr.length; j += 1) {
       const td = document.createElement("td");
-      td.innerText = "k";
+
       tr.appendChild(td);
     }
   }
