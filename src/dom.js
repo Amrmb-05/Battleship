@@ -21,15 +21,15 @@ export function renderBoard(arr) {
   }
 }
 
-export function takeinput(player) {
+export function takeinput(player, enemy) {
   container.addEventListener(
     "click",
     (event) => {
       console.log(event.target.tagName);
       if (event.target.tagName === "TD") {
-        player.attack(event.target.dataset.x, event.target.dataset.y);
+        player.attack(event.target.dataset.x, event.target.dataset.y, enemy);
         console.log("attack");
-        console.log(player.board);
+        console.log(enemy.playerBoard);
       }
     },
     { once: true },
