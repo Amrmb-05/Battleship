@@ -13,12 +13,12 @@ describe("places ship in the specified coordinates and direction", () => {
   test("places ship in the specified coordinates horizontally", () => {
     newGame.placeShip(2, 2, "horizontal", 2);
     expect(newGame.board[2][2]).toEqual(ship);
-    expect(newGame.board[1][2]).toEqual(ship);
+    expect(newGame.board[2][3]).toEqual(ship);
   });
   test("places ship in the specified coordinates vertically", () => {
     newGame.placeShip(2, 2, "vertical", 2);
     expect(newGame.board[2][2]).toEqual(ship);
-    expect(newGame.board[2][3]).toEqual(ship);
+    expect(newGame.board[1][2]).toEqual(ship);
   });
 });
 
@@ -28,7 +28,7 @@ describe("attacks a ship if its in the specified coordinates or records the coor
   });
   test("attacks ship in specified coordinates", () => {
     newGame.receiveAttack(3, 4);
-    expect(ship.noOfHits).toBe(1);
+    expect(newGame.board[3][4]).toBe("hit");
   });
 
   test("shot miss", () => {

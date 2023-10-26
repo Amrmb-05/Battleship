@@ -7,3 +7,8 @@ td {
     width: 25px;
     height: 25px
 }
+
+#container {
+    display: flex;
+    gap: 5rem;
+}

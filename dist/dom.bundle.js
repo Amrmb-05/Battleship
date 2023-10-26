@@ -1,44 +1,6 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/dom.js":
-/*!********************!*\
-  !*** ./src/dom.js ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game */ \"./src/game.js\");\n\n\nconsole.log(_game__WEBPACK_IMPORTED_MODULE_0__.playerOneBoard);\nfunction renderBoard(arr) {\n  const container = document.getElementById(\"container\");\n  const table = document.createElement(\"table\");\n  container.appendChild(table);\n\n  for (let i = 0; i < arr.length; i += 1) {\n    const tr = document.createElement(\"tr\");\n    table.appendChild(tr);\n    // document.appendChild;\n    for (let j = 0; j < arr.length; j += 1) {\n      const td = document.createElement(\"td\");\n\n      tr.appendChild(td);\n    }\n  }\n}\n\nrenderBoard(_game__WEBPACK_IMPORTED_MODULE_0__.playerOneBoard.board);\n\n\n//# sourceURL=webpack://battleship/./src/dom.js?");
-
-/***/ }),
-
-/***/ "./src/game.js":
-/*!*********************!*\
-  !*** ./src/game.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   computerBoard: () => (/* binding */ computerBoard),\n/* harmony export */   playerOneBoard: () => (/* binding */ playerOneBoard)\n/* harmony export */ });\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./player */ \"./src/player.js\");\n\n\nconst playerOne = new _player__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nconst computer = new _player__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nconst computerBoard = playerOne.enemyBoard;\n// computerBoard.placeShip(1, 5, \"horizontal\", 3);\n// computerBoard.placeShip(3, 8, \"horizontal\", 5);\n// computerBoard.placeShip(7, 2, \"horizontal\", 6);\n// computerBoard.placeShip(1, 4, \"horizontal\", 1);\n\nconst playerOneBoard = computer.enemyBoard;\n// playerOneBoard.placeShip(5, 3, \"horizontal\", 3);\n// playerOneBoard.placeShip(8, 3, \"horizontal\", 5);\n// playerOneBoard.placeShip(8, 7, \"horizontal\", 1);\n// playerOneBoard.placeShip(3, 3, \"horizontal\", 6);\n\n\n//# sourceURL=webpack://battleship/./src/game.js?");
-
-/***/ }),
-
-/***/ "./src/gameBoard.js":
-/*!**************************!*\
-  !*** ./src/gameBoard.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Gameboard)\n/* harmony export */ });\n/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ \"./src/index.js\");\n\n\nclass Gameboard {\n  constructor() {\n    this.board = [];\n    for (let i = 0; i < 10; i += 1) {\n      this.board[i] = [];\n      for (let j = 0; j < 10; j += 1) {\n        this.board[i][j] = j;\n      }\n    }\n  }\n\n  placeShip(x, y, direction, length) {\n    const ship = new ___WEBPACK_IMPORTED_MODULE_0__[\"default\"](length);\n    this.board[x][y] = ship;\n    for (let i = 0; i < length; i += 1) {\n      if (direction === \"horizontal\") {\n        this.board[x - i][y] = ship;\n      } else if (direction === \"vertical\") this.board[x][y + i] = ship;\n    }\n    return ship;\n  }\n\n  receiveAttack(x, y) {\n    if (this.board[x][y] instanceof ___WEBPACK_IMPORTED_MODULE_0__[\"default\"]) {\n      this.board[x][y].hit();\n      this.board[x][y] = \"hit\";\n    } else {\n      this.board[x][y] = \"miss\";\n    }\n  }\n\n  allSunk() {\n    for (let i = 0; i < 10; i += 1) {\n      for (let j = 0; j < 10; j += 1) {\n        if (\n          this.board[i][j] instanceof ___WEBPACK_IMPORTED_MODULE_0__[\"default\"] &&\n          this.board[i][j].isSunk() === false\n        )\n          return false;\n      }\n    }\n    return true;\n  }\n}\n\n\n//# sourceURL=webpack://battleship/./src/gameBoard.js?");
-
-/***/ }),
 
 /***/ "./src/index.js":
 /*!**********************!*\
@@ -46,17 +8,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Ship)\n/* harmony export */ });\nclass Ship {\n  constructor(length) {\n    this.length = length;\n    this.noOfHits = 0;\n  }\n\n  hit() {\n    this.noOfHits += 1;\n  }\n\n  isSunk() {\n    if (this.length === this.noOfHits) return true;\n    return false;\n  }\n}\n\n\n//# sourceURL=webpack://battleship/./src/index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Ship)
+/* harmony export */ });
+class Ship {
+  constructor(length) {
+    this.length = length;
+    this.noOfHits = 0;
+  }
 
-/***/ }),
+  hit() {
+    this.noOfHits += 1;
+  }
 
-/***/ "./src/player.js":
-/*!***********************!*\
-  !*** ./src/player.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+  isSunk() {
+    if (this.length === this.noOfHits) return true;
+    return false;
+  }
+}
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Player)\n/* harmony export */ });\n/* harmony import */ var _gameBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gameBoard */ \"./src/gameBoard.js\");\n\n\nclass Player {\n  enemyBoard = new _gameBoard__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n  attack(x, y) {\n    this.enemyBoard.receiveAttack(x, y);\n  }\n\n  randomMove() {\n    const x = Math.floor(Math.random() * 10);\n    const y = Math.floor(Math.random() * 10);\n    this.attack(x, y);\n    return [x, y];\n  }\n}\n\n\n//# sourceURL=webpack://battleship/./src/player.js?");
 
 /***/ })
 
@@ -116,11 +87,58 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/dom.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   renderBoard: () => (/* binding */ renderBoard),
+/* harmony export */   takeinput: () => (/* binding */ takeinput)
+/* harmony export */ });
+/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ "./src/index.js");
+
+
+const container = document.getElementById("container");
+function renderBoard(arr) {
+  const table = document.createElement("table");
+  const player = container.childNodes.length;
+  table.classList.add(`player-${player + 1}`);
+
+  container.appendChild(table);
+
+  for (let i = 0; i < arr.length; i += 1) {
+    const tr = document.createElement("tr");
+    table.appendChild(tr);
+    for (let j = 0; j < arr.length; j += 1) {
+      const td = document.createElement("td");
+      td.dataset.x = i;
+      td.dataset.y = j;
+      if (arr[i][j] instanceof ___WEBPACK_IMPORTED_MODULE_0__["default"]) td.innerText = "ship";
+      tr.appendChild(td);
+    }
+  }
+}
+
+function takeinput(player) {
+  container.addEventListener(
+    "click",
+    (event) => {
+      console.log(event.target.tagName);
+      if (event.target.tagName === "TD") {
+        player.attack(event.target.dataset.x, event.target.dataset.y);
+        console.log("attack");
+        console.log(player.board);
+      }
+    },
+    { once: true },
+  );
+}
+
+})();
+
 /******/ })()
 ;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZG9tLmJ1bmRsZS5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUFlO0FBQ2Y7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7VUNkQTtVQUNBOztVQUVBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBOztVQUVBO1VBQ0E7O1VBRUE7VUFDQTtVQUNBOzs7OztXQ3RCQTtXQUNBO1dBQ0E7V0FDQTtXQUNBLHlDQUF5Qyx3Q0FBd0M7V0FDakY7V0FDQTtXQUNBOzs7OztXQ1BBOzs7OztXQ0FBO1dBQ0E7V0FDQTtXQUNBLHVEQUF1RCxpQkFBaUI7V0FDeEU7V0FDQSxnREFBZ0QsYUFBYTtXQUM3RDs7Ozs7Ozs7Ozs7Ozs7OztBQ05xQjs7QUFFckI7QUFDTztBQUNQO0FBQ0E7QUFDQSxnQ0FBZ0MsV0FBVzs7QUFFM0M7O0FBRUEsa0JBQWtCLGdCQUFnQjtBQUNsQztBQUNBO0FBQ0Esb0JBQW9CLGdCQUFnQjtBQUNwQztBQUNBO0FBQ0E7QUFDQSwrQkFBK0IseUNBQUk7QUFDbkM7QUFDQTtBQUNBO0FBQ0E7O0FBRU87QUFDUDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0wsTUFBTSxZQUFZO0FBQ2xCO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9iYXR0bGVzaGlwLy4vc3JjL2luZGV4LmpzIiwid2VicGFjazovL2JhdHRsZXNoaXAvd2VicGFjay9ib290c3RyYXAiLCJ3ZWJwYWNrOi8vYmF0dGxlc2hpcC93ZWJwYWNrL3J1bnRpbWUvZGVmaW5lIHByb3BlcnR5IGdldHRlcnMiLCJ3ZWJwYWNrOi8vYmF0dGxlc2hpcC93ZWJwYWNrL3J1bnRpbWUvaGFzT3duUHJvcGVydHkgc2hvcnRoYW5kIiwid2VicGFjazovL2JhdHRsZXNoaXAvd2VicGFjay9ydW50aW1lL21ha2UgbmFtZXNwYWNlIG9iamVjdCIsIndlYnBhY2s6Ly9iYXR0bGVzaGlwLy4vc3JjL2RvbS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBjbGFzcyBTaGlwIHtcbiAgY29uc3RydWN0b3IobGVuZ3RoKSB7XG4gICAgdGhpcy5sZW5ndGggPSBsZW5ndGg7XG4gICAgdGhpcy5ub09mSGl0cyA9IDA7XG4gIH1cblxuICBoaXQoKSB7XG4gICAgdGhpcy5ub09mSGl0cyArPSAxO1xuICB9XG5cbiAgaXNTdW5rKCkge1xuICAgIGlmICh0aGlzLmxlbmd0aCA9PT0gdGhpcy5ub09mSGl0cykgcmV0dXJuIHRydWU7XG4gICAgcmV0dXJuIGZhbHNlO1xuICB9XG59XG4iLCIvLyBUaGUgbW9kdWxlIGNhY2hlXG52YXIgX193ZWJwYWNrX21vZHVsZV9jYWNoZV9fID0ge307XG5cbi8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG5mdW5jdGlvbiBfX3dlYnBhY2tfcmVxdWlyZV9fKG1vZHVsZUlkKSB7XG5cdC8vIENoZWNrIGlmIG1vZHVsZSBpcyBpbiBjYWNoZVxuXHR2YXIgY2FjaGVkTW9kdWxlID0gX193ZWJwYWNrX21vZHVsZV9jYWNoZV9fW21vZHVsZUlkXTtcblx0aWYgKGNhY2hlZE1vZHVsZSAhPT0gdW5kZWZpbmVkKSB7XG5cdFx0cmV0dXJuIGNhY2hlZE1vZHVsZS5leHBvcnRzO1xuXHR9XG5cdC8vIENyZWF0ZSBhIG5ldyBtb2R1bGUgKGFuZCBwdXQgaXQgaW50byB0aGUgY2FjaGUpXG5cdHZhciBtb2R1bGUgPSBfX3dlYnBhY2tfbW9kdWxlX2NhY2hlX19bbW9kdWxlSWRdID0ge1xuXHRcdC8vIG5vIG1vZHVsZS5pZCBuZWVkZWRcblx0XHQvLyBubyBtb2R1bGUubG9hZGVkIG5lZWRlZFxuXHRcdGV4cG9ydHM6IHt9XG5cdH07XG5cblx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG5cdF9fd2VicGFja19tb2R1bGVzX19bbW9kdWxlSWRdKG1vZHVsZSwgbW9kdWxlLmV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pO1xuXG5cdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG5cdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbn1cblxuIiwiLy8gZGVmaW5lIGdldHRlciBmdW5jdGlvbnMgZm9yIGhhcm1vbnkgZXhwb3J0c1xuX193ZWJwYWNrX3JlcXVpcmVfXy5kID0gKGV4cG9ydHMsIGRlZmluaXRpb24pID0+IHtcblx0Zm9yKHZhciBrZXkgaW4gZGVmaW5pdGlvbikge1xuXHRcdGlmKF9fd2VicGFja19yZXF1aXJlX18ubyhkZWZpbml0aW9uLCBrZXkpICYmICFfX3dlYnBhY2tfcmVxdWlyZV9fLm8oZXhwb3J0cywga2V5KSkge1xuXHRcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIGtleSwgeyBlbnVtZXJhYmxlOiB0cnVlLCBnZXQ6IGRlZmluaXRpb25ba2V5XSB9KTtcblx0XHR9XG5cdH1cbn07IiwiX193ZWJwYWNrX3JlcXVpcmVfXy5vID0gKG9iaiwgcHJvcCkgPT4gKE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChvYmosIHByb3ApKSIsIi8vIGRlZmluZSBfX2VzTW9kdWxlIG9uIGV4cG9ydHNcbl9fd2VicGFja19yZXF1aXJlX18uciA9IChleHBvcnRzKSA9PiB7XG5cdGlmKHR5cGVvZiBTeW1ib2wgIT09ICd1bmRlZmluZWQnICYmIFN5bWJvbC50b1N0cmluZ1RhZykge1xuXHRcdE9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBTeW1ib2wudG9TdHJpbmdUYWcsIHsgdmFsdWU6ICdNb2R1bGUnIH0pO1xuXHR9XG5cdE9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCAnX19lc01vZHVsZScsIHsgdmFsdWU6IHRydWUgfSk7XG59OyIsImltcG9ydCBTaGlwIGZyb20gXCIuXCI7XG5cbmNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwiY29udGFpbmVyXCIpO1xuZXhwb3J0IGZ1bmN0aW9uIHJlbmRlckJvYXJkKGFycikge1xuICBjb25zdCB0YWJsZSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJ0YWJsZVwiKTtcbiAgY29uc3QgcGxheWVyID0gY29udGFpbmVyLmNoaWxkTm9kZXMubGVuZ3RoO1xuICB0YWJsZS5jbGFzc0xpc3QuYWRkKGBwbGF5ZXItJHtwbGF5ZXIgKyAxfWApO1xuXG4gIGNvbnRhaW5lci5hcHBlbmRDaGlsZCh0YWJsZSk7XG5cbiAgZm9yIChsZXQgaSA9IDA7IGkgPCBhcnIubGVuZ3RoOyBpICs9IDEpIHtcbiAgICBjb25zdCB0ciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJ0clwiKTtcbiAgICB0YWJsZS5hcHBlbmRDaGlsZCh0cik7XG4gICAgZm9yIChsZXQgaiA9IDA7IGogPCBhcnIubGVuZ3RoOyBqICs9IDEpIHtcbiAgICAgIGNvbnN0IHRkID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcInRkXCIpO1xuICAgICAgdGQuZGF0YXNldC54ID0gaTtcbiAgICAgIHRkLmRhdGFzZXQueSA9IGo7XG4gICAgICBpZiAoYXJyW2ldW2pdIGluc3RhbmNlb2YgU2hpcCkgdGQuaW5uZXJUZXh0ID0gXCJzaGlwXCI7XG4gICAgICB0ci5hcHBlbmRDaGlsZCh0ZCk7XG4gICAgfVxuICB9XG59XG5cbmV4cG9ydCBmdW5jdGlvbiB0YWtlaW5wdXQocGxheWVyKSB7XG4gIGNvbnRhaW5lci5hZGRFdmVudExpc3RlbmVyKFxuICAgIFwiY2xpY2tcIixcbiAgICAoZXZlbnQpID0+IHtcbiAgICAgIGNvbnNvbGUubG9nKGV2ZW50LnRhcmdldC50YWdOYW1lKTtcbiAgICAgIGlmIChldmVudC50YXJnZXQudGFnTmFtZSA9PT0gXCJURFwiKSB7XG4gICAgICAgIHBsYXllci5hdHRhY2soZXZlbnQudGFyZ2V0LmRhdGFzZXQueCwgZXZlbnQudGFyZ2V0LmRhdGFzZXQueSk7XG4gICAgICAgIGNvbnNvbGUubG9nKFwiYXR0YWNrXCIpO1xuICAgICAgICBjb25zb2xlLmxvZyhwbGF5ZXIuYm9hcmQpO1xuICAgICAgfVxuICAgIH0sXG4gICAgeyBvbmNlOiB0cnVlIH0sXG4gICk7XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=
