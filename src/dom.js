@@ -21,6 +21,10 @@ function renderBoard(arr) {
   }
 }
 
+// function displayWinner(winner) {
+
+// }
+
 export { renderBoard };
 
 // export function takeinput(player, enemy) {
