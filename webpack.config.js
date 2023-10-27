@@ -10,6 +10,7 @@ module.exports = {
     board: "./src/gameBoard.js",
     dom: "./src/dom.js",
     game: "./src/game.js",
+    app: "./src/app.js",
   },
   devtool: "inline-source-map",
   // plugins: [

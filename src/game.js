@@ -1,9 +1,7 @@
 import Player from "./player";
-import takeinput from "./dom";
 
 const playerOne = new Player();
 const computer = new Player();
-
 const playerOneBoard = playerOne.playerBoard;
 const computerBoard = computer.playerBoard;
 
@@ -17,14 +15,22 @@ playerOneBoard.placeShip(8, 3, "horizontal", 5);
 playerOneBoard.placeShip(8, 7, "horizontal", 1);
 playerOneBoard.placeShip(3, 3, "horizontal", 6);
 
-let turnsPlayed = 0;
-const currentPlayer = playerOneBoard;
-while (turnsPlayed < 6) {
-  takeinput(currentPlayer);
-  setTimeout(() => {
-    computer.randomMove();
-  }, 2000);
-  turnsPlayed += 1;
+function gameController() {
+  const computerGrid = document.querySelector(".player-2");
+  computerGrid.addEventListener("click", (event) => {
+    if (event.target.tagName === "TD") {
+      playerOne.attack(
+        event.target.dataset.x,
+        event.target.dataset.y,
+        computer.playerBoard,
+      );
+      console.log(`Computer: ${computer.playerBoard}`);
+    }
+    setTimeout(() => {
+      computer.randomMove(playerOne.playerBoard);
+      console.log(`Player 1: ${playerOne.playerBoard}`);
+    }, 2000);
+  });
 }
 
-export { playerOne, computer };
+export { playerOne, computer, gameController };

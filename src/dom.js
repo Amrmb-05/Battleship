@@ -1,7 +1,7 @@
 import Ship from ".";
 
 const container = document.getElementById("container");
-export function renderBoard(arr) {
+function renderBoard(arr) {
   const table = document.createElement("table");
   const player = container.childNodes.length;
   table.classList.add(`player-${player + 1}`);
@@ -21,17 +21,23 @@ export function renderBoard(arr) {
   }
 }
 
-export function takeinput(player, enemy) {
-  container.addEventListener(
-    "click",
-    (event) => {
-      console.log(event.target.tagName);
-      if (event.target.tagName === "TD") {
-        player.attack(event.target.dataset.x, event.target.dataset.y, enemy);
-        console.log("attack");
-        console.log(enemy.playerBoard);
-      }
-    },
-    { once: true },
-  );
-}
+export { renderBoard };
+
+// export function takeinput(player, enemy) {
+//   container.addEventListener(
+//     "click",
+//     (event) => {
+//       console.log(event.target.tagName);
+//       if (event.target.tagName === "TD") {
+//         player.attack(
+//           event.target.dataset.x,
+//           event.target.dataset.y,
+//           enemy.playerBoard,
+//         );
+//         console.log("attack");
+//         console.log(enemy.playerBoard);
+//       }
+//     },
+//     { once: true },
+//   );
+// }
