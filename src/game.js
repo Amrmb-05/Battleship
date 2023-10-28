@@ -50,7 +50,8 @@ function gameController() {
     }
     setTimeout(() => {
       const attackedCoords = computer.randomMove(playerOne.playerBoard);
-      console.log(`Player 1: ${playerOne.playerBoard}`);
+      console.log(playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]);
+      console.log(attackedCoords);
       const attackedCell = document.querySelector(
         `[data-cords="${attackedCoords[0]}${attackedCoords[1]}"]`,
       );

@@ -1,4 +1,4 @@
-import { experiments } from "webpack";
+// import { experiments } from "webpack";
 import Player from "./src/player";
 
 let ship;
@@ -23,14 +23,31 @@ describe("Computer makes a random move", () => {
 
     expect(["hit", "miss"]).toContain(playerTwo.playerBoard.board[x][y]);
   });
-  test.only("make another move if the coordinates were already attacked", () => {
+  test("make another move if the coordinates were already attacked and it was a miss", () => {
     for (let i = 0; i < 10; i += 1) {
       for (let j = 0; j < 10; j += 1) {
         player.playerBoard.board[i][j] = "miss";
       }
     }
     player.playerBoard.placeShip(1, 0, "horizontal", 1);
-    player.randomMove(player.playerBoard);
+    playerTwo.randomMove(player.playerBoard);
     expect(player.playerBoard.board[1][0]).toBe("hit");
+  });
+
+  test.only("make another move if the coordinates were already attacked and it was a hit", () => {
+    for (let i = 0; i < 10; i += 1) {
+      for (let j = 0; j < 10; j += 1) {
+        player.playerBoard.board[i][j] = "hit";
+      }
+    }
+    player.playerBoard.placeShip(1, 0, "horizontal", 1);
+    player.playerBoard.placeShip(2, 4, "horizontal", 1);
+    console.log(player.playerBoard.board[1][0]);
+    console.log(player.playerBoard.board[2][4]);
+    playerTwo.randomMove(player.playerBoard);
+    playerTwo.randomMove(player.playerBoard);
+
+    expect(player.playerBoard.board[1][0]).toBe("hit");
+    expect(player.playerBoard.board[2][4]).toBe("hit");
   });
 });
