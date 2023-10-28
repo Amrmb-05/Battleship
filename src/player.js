@@ -13,6 +13,9 @@ export default class Player {
   randomMove(opponent) {
     const x = Math.floor(Math.random() * 10);
     const y = Math.floor(Math.random() * 10);
+    if (opponent.board[x][y] === "hit" || opponent.board[x][y] === "miss") {
+      this.randomMove(opponent);
+    }
     this.attack(x, y, opponent);
     return [x, y];
   }
