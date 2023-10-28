@@ -47,6 +47,9 @@ function gameController() {
         }`,
       );
       console.log(`Computer: ${computer.playerBoard}`);
+      if (isGameOver() === true) {
+        displayWinner(winnerFound);
+      }
     }
     setTimeout(() => {
       const attackedCoords = computer.randomMove(playerOne.playerBoard);
