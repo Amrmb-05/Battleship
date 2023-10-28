@@ -12,3 +12,15 @@ td {
     display: flex;
     gap: 5rem;
 }
+
+.player-1 .ship {
+    background-color: rgb(107, 107, 98);
+}
+
+.hit {
+    background-color: rgb(47, 255, 113);
+}
+
+.miss {
+    background-color: rgb(242, 13, 13);
+}

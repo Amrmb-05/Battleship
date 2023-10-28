@@ -4,8 +4,8 @@ let ship;
 let player;
 let playerTwo;
 beforeEach(() => {
-  player = new Player();
-  playerTwo = new Player();
+  player = new Player("Amr");
+  playerTwo = new Player("Lufy");
   ship = playerTwo.playerBoard.placeShip(3, 5, "horizontal", 3);
 });
 

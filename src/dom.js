@@ -15,17 +15,18 @@ function renderBoard(arr) {
       const td = document.createElement("td");
       td.dataset.x = i;
       td.dataset.y = j;
-      if (arr[i][j] instanceof Ship) td.innerText = "ship";
+      if (arr[i][j] instanceof Ship) td.classList.add("ship");
       tr.appendChild(td);
     }
   }
 }
 
-// function displayWinner(winner) {
+function displayWinner(winner) {
+  const winMessage = document.querySelector(".winner-display");
+  winMessage.textContent = `${winner.name} is the Winner!`;
+}
 
-// }
-
-export { renderBoard };
+export { renderBoard, displayWinner };
 
 // export function takeinput(player, enemy) {
 //   container.addEventListener(
