@@ -17,7 +17,7 @@ td {
     background-color: rgb(107, 107, 98);
 }
 
-.hit {
+.player-1 .hit,  .player-2 .hit{
     background-color: rgb(47, 255, 113);
 }
 

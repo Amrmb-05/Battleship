@@ -19,11 +19,11 @@ playerOneBoard.placeShip(3, 3, "horizontal", 6);
 
 function isGameOver() {
   if (playerOne.playerBoard.allSunk() === true) {
-    winnerFound = playerOne;
+    winnerFound = computer;
     return true;
   }
   if (computer.playerBoard.allSunk() === true) {
-    winnerFound = computer;
+    winnerFound = playerOne;
     console.log(winnerFound);
     return true;
   }
@@ -35,20 +35,28 @@ function gameController() {
   computerGrid.addEventListener("click", (event) => {
     if (event.target.tagName === "TD") {
       playerOne.attack(
-        event.target.dataset.x,
-        event.target.dataset.y,
+        event.target.dataset.cords[0],
+        event.target.dataset.cords[1],
         computer.playerBoard,
       );
       event.target.classList.add(
         `${
-          computerBoard.board[event.target.dataset.x][event.target.dataset.y]
+          computerBoard.board[event.target.dataset.cords[0]][
+            event.target.dataset.cords[1]
+          ]
         }`,
       );
       console.log(`Computer: ${computer.playerBoard}`);
     }
     setTimeout(() => {
-      computer.randomMove(playerOne.playerBoard);
+      const attackedCoords = computer.randomMove(playerOne.playerBoard);
       console.log(`Player 1: ${playerOne.playerBoard}`);
+      const attackedCell = document.querySelector(
+        `[data-cords="${attackedCoords[0]}${attackedCoords[1]}"]`,
+      );
+      attackedCell.classList.add(
+        `${playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]}`,
+      );
     }, 1000);
     if (isGameOver() === true) {
       displayWinner(winnerFound);

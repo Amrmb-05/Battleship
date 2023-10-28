@@ -13,9 +13,10 @@ function renderBoard(arr) {
     table.appendChild(tr);
     for (let j = 0; j < arr.length; j += 1) {
       const td = document.createElement("td");
-      td.dataset.x = i;
-      td.dataset.y = j;
+      td.dataset.cords = `${i}${j}`;
       if (arr[i][j] instanceof Ship) td.classList.add("ship");
+      // if (arr[i][j] === "hit") td.classList.add("hit");
+      // if (arr[i][j] === "miss") td.classList.add("miss");
       tr.appendChild(td);
     }
   }
