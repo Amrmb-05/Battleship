@@ -12,11 +12,12 @@ td {
 
 .draggable {
     display: inline-flex;
+    margin: 15px
 }
 
 .ship-container {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
     gap: 15px
 }
 
@@ -28,8 +29,9 @@ td {
 }
 
 .vertical {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+   
 }
 
 #container {
@@ -49,9 +51,9 @@ td {
 .ship  {
     background-color: rgb(107, 107, 98);
 }
-.player-2 .ship {
+/* .player-2 .ship {
     background-color: black;
-}
+} */
 
 .player-1 .hit,  .player-2 .hit{
     background-color: rgb(47, 255, 113);

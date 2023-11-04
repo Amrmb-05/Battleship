@@ -7,10 +7,11 @@ const playerOneBoard = playerOne.playerBoard;
 const computerBoard = computer.playerBoard;
 let winnerFound = false;
 
-computerBoard.placeShip(0, 0, "horizontal", 3);
-computerBoard.placeShip(3, 8, "horizontal", 5);
-computerBoard.placeShip(7, 2, "horizontal", 6);
-computerBoard.placeShip(1, 4, "horizontal", 1);
+computerBoard.populate();
+// computerBoard.placeShip(0, 0, "horizontal", 3);
+// computerBoard.placeShip(3, 8, "horizontal", 5);
+// computerBoard.placeShip(7, 2, "horizontal", 6);
+// computerBoard.placeShip(1, 4, "horizontal", 1);
 
 // playerOneBoard.placeShip(0, 0, "vertical", 4);
 // playerOneBoard.placeShip(2, 3, "horizontal", 5);

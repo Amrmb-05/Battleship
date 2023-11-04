@@ -34,7 +34,7 @@ describe("Computer makes a random move", () => {
     expect(player.playerBoard.board[1][0]).toBe("hit");
   });
 
-  test.only("make another move if the coordinates were already attacked and it was a hit", () => {
+  test("make another move if the coordinates were already attacked and it was a hit", () => {
     for (let i = 0; i < 10; i += 1) {
       for (let j = 0; j < 10; j += 1) {
         player.playerBoard.board[i][j] = "hit";

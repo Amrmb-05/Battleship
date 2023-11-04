@@ -54,3 +54,17 @@ test("returns false if all ships have been sunk", () => {
   ship2.hit();
   expect(newGame.allSunk()).toBe(false);
 });
+
+test("place ship in random coordinates", () => {
+  const cords = newGame.randomShipPlacement(3);
+  const x = cords[0];
+  const y = cords[1];
+  expect(newGame.board[x][y]).toBeTruthy();
+});
+
+test.only("place 5 ships in random coordinates", () => {
+  newGame.populate();
+
+  console.log(newGame.board);
+  // expect(newGame.board);
+});

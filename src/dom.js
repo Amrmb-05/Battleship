@@ -26,9 +26,10 @@ function displayWinner(winner) {
   const winMessage = document.querySelector(".winner-display");
   winMessage.textContent = `${winner.name} is the Winner!`;
 }
-
-const submarine = document.getElementById("submarine");
-submarine.addEventListener("click", () => {
-  submarine.classList.toggle("vertical");
+const ships = document.querySelectorAll(".draggable");
+ships.forEach((ship) => {
+  ship.addEventListener("click", () => {
+    ship.classList.toggle("vertical");
+  });
 });
 export { renderBoard, displayWinner };

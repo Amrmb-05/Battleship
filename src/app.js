@@ -3,19 +3,19 @@ import { computer, playerOne, gameController } from "./game";
 import * as drag from "./drag";
 
 renderBoard(playerOne.playerBoard.board);
-// renderBoard(computer.playerBoard.board);
+renderBoard(computer.playerBoard.board);
 
-const draggable = document.querySelector(".draggable");
+const ships = document.querySelectorAll(".draggable");
 let result;
-draggable.addEventListener("mousedown", (e) => {
-  console.log(draggable);
-  result = draggable.classList.contains("vertical")
-    ? drag.getDropTargetsVerticalPosition(draggable, e.clientY)
-    : drag.getDropTargetsHorizontalPosition(draggable, e.clientX);
+ships.forEach((ship) => {
+  ship.addEventListener("mousedown", (e) => {
+    result = ship.classList.contains("vertical")
+      ? drag.getDropTargetsVerticalPosition(ship, e.clientY)
+      : drag.getDropTargetsHorizontalPosition(ship, e.clientX);
+  });
 });
 
 const cells = document.querySelectorAll(".player-1 TD");
-console.log(cells);
 // function drop(e) {
 //   for (const num of result) {
 //     let cord = String(Number(e.target.dataset.cords) + num);
@@ -37,12 +37,17 @@ console.log(cells);
 //   console.log(playerOne.playerBoard.board);
 // }
 
-const item = document.getElementById("submarine");
-
-console.log(item);
-item.addEventListener("dragstart", drag.dragStart);
-item.addEventListener("dragend", item.classList.remove("dragging"));
-
+// const ships = document.querySelectorAll(".draggable");
+ships.forEach((ship) => {
+  ship.addEventListener("dragstart", drag.dragStart);
+  ship.addEventListener("dragend", drag.dragEnd);
+  ship.addEventListener("mousedown", (e) => {
+    e.target.parentNode.classList.add("dragging");
+  });
+  ship.addEventListener("mouseup", (e) => {
+    e.target.parentNode.classList.remove("dragging");
+  });
+});
 cells.forEach((cell) => {
   cell.addEventListener("dragenter", drag.dragEnter);
   cell.addEventListener("dragover", drag.dragOver);
