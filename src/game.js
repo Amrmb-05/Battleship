@@ -12,7 +12,7 @@ computerBoard.placeShip(3, 8, "horizontal", 5);
 computerBoard.placeShip(7, 2, "horizontal", 6);
 computerBoard.placeShip(1, 4, "horizontal", 1);
 
-playerOneBoard.placeShip(0, 0, "vertical", 4);
+// playerOneBoard.placeShip(0, 0, "vertical", 4);
 // playerOneBoard.placeShip(2, 3, "horizontal", 5);
 // playerOneBoard.placeShip(8, 7, "horizontal", 1);
 // playerOneBoard.placeShip(3, 3, "horizontal", 6);
