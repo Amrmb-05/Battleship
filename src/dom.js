@@ -29,8 +29,6 @@ function displayWinner(winner) {
 
 const submarine = document.getElementById("submarine");
 submarine.addEventListener("click", () => {
-  console.log("am");
   submarine.classList.toggle("vertical");
-  console.log(submarine);
 });
 export { renderBoard, displayWinner };

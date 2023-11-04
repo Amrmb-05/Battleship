@@ -16,7 +16,7 @@ export default class Gameboard {
     this.board[x][y] = ship;
     for (let i = 0; i < length; i += 1) {
       if (direction === "vertical") {
-        this.board[x - i][y] = ship;
+        this.board[x + i][y] = ship;
       } else if (direction === "horizontal") this.board[x][y + i] = ship;
     }
     return ship;
