@@ -27,26 +27,10 @@ function displayWinner(winner) {
   winMessage.textContent = `${winner.name} is the Winner!`;
 }
 
-// const cells = document.querySelector(".player 1 TD");
-// console.log(cells);
-// function drop(e) {
-//   const id = e.dataTransfer.getData("text/plain");
-//   const draggable = document.getElementById(id);
-//   e.target.replaceWith(draggable);
-// }
-
-// function dragOver(e) {
-//   e.preventDefault();
-// }
-
-// function dragEnter(e) {
-//   e.preventDefault();
-//   console.log("enter");
-// }
-// cells.forEach((cell) => {
-//   cell.addEventListener("dragEnter", dragEnter);
-//   cell.addEventListener("dragOver", dragOver);
-//   cell.addEventListener("drop", drop);
-// });
-
+const submarine = document.getElementById("submarine");
+submarine.addEventListener("click", () => {
+  console.log("am");
+  submarine.classList.toggle("vertical");
+  console.log(submarine);
+});
 export { renderBoard, displayWinner };

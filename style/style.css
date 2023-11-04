@@ -23,7 +23,7 @@ td {
     border-collapse: collapse;
 }
 
-#submarine {
+.vertical {
     display: flex;
     flex-direction: column;
 }

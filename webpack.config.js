@@ -11,6 +11,7 @@ module.exports = {
     dom: "./src/dom.js",
     game: "./src/game.js",
     app: "./src/app.js",
+    drag: "./src/drag.js",
   },
   devtool: "inline-source-map",
   plugins: [
