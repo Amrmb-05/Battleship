@@ -1,6 +1,8 @@
 table, td {
-    border: 1px solid black;
+    border: 1px solid white;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
@@ -8,13 +10,43 @@ td {
     height: 25px
 }
 
+.draggable {
+    display: inline-flex;
+}
+
+
+
+.block {
+    width: 25px;
+    height: 25px;
+    border: 0.1px solid white;
+    border-collapse: collapse;
+}
+
+#submarine {
+    display: flex;
+    flex-direction: column;
+}
+
 #container {
     display: flex;
     gap: 5rem;
 }
 
-.player-1 .ship {
+
+/* td:hover{
+    border: dashed 3px red;
+
+} */
+
+:-moz-drag-over {
+    border: dashed 3px red;
+}
+.ship  {
     background-color: rgb(107, 107, 98);
+}
+.player-2 .ship {
+    background-color: black;
 }
 
 .player-1 .hit,  .player-2 .hit{
@@ -24,3 +56,16 @@ td {
 .miss {
     background-color: rgb(242, 13, 13);
 }
+
+h1 {
+    text-align: center;
+}
+
+body {
+    color: white;
+    background-color: black;
+}
+
+/* .drag-over {
+    border: dashed 3px red;
+} */
