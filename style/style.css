@@ -23,6 +23,7 @@ td {
     margin-right: 28vw;
 }
 
+
 .ship-container {
     margin-top: 20px;
     display: flex;
@@ -85,6 +86,11 @@ body {
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
+}
+
+
+.hide {
+    display: none;
 }
 
 /* .drag-over {

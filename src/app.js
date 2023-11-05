@@ -54,6 +54,7 @@ cells.forEach((cell) => {
 
 const startBtn = document.querySelector(".start-game");
 startBtn.addEventListener("click", () => {
+  startBtn.classList.toggle("hide");
   renderBoard(computer.playerBoard.board);
   gameController();
 });
