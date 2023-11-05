@@ -3,7 +3,6 @@ import { computer, playerOne, gameController } from "./game";
 import * as drag from "./drag";
 
 renderBoard(playerOne.playerBoard.board);
-// renderBoard(computer.playerBoard.board);
 
 const ships = document.querySelectorAll(".draggable");
 let result;

@@ -31,42 +31,48 @@ function isGameOver() {
   return false;
 }
 
-function gameController() {
+function gameLoop(event) {
   const computerGrid = document.querySelector(".player-2");
-  computerGrid.addEventListener("click", (event) => {
-    if (event.target.tagName === "TD") {
-      playerOne.attack(
-        event.target.dataset.cords[0],
-        event.target.dataset.cords[1],
-        computer.playerBoard,
-      );
-      event.target.classList.add(
-        `${
-          computerBoard.board[event.target.dataset.cords[0]][
-            event.target.dataset.cords[1]
-          ]
-        }`,
-      );
-      console.log(`Computer: ${computer.playerBoard}`);
-      if (isGameOver() === true) {
-        displayWinner(winnerFound);
-      }
-    }
-    setTimeout(() => {
-      const attackedCoords = computer.randomMove(playerOne.playerBoard);
-      console.log(playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]);
-      console.log(attackedCoords);
-      const attackedCell = document.querySelector(
-        `[data-cords="${attackedCoords[0]}${attackedCoords[1]}"]`,
-      );
-      attackedCell.classList.add(
-        `${playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]}`,
-      );
-    }, 1000);
+
+  if (event.target.tagName === "TD") {
+    playerOne.attack(
+      event.target.dataset.cords[0],
+      event.target.dataset.cords[1],
+      computer.playerBoard,
+    );
+    event.target.classList.add(
+      `${
+        computerBoard.board[event.target.dataset.cords[0]][
+          event.target.dataset.cords[1]
+        ]
+      }`,
+    );
     if (isGameOver() === true) {
       displayWinner(winnerFound);
+      computerGrid.removeEventListener("click", gameLoop);
     }
-  });
+    console.log(`Computer: ${computer.playerBoard}`);
+  }
+  setTimeout(() => {
+    const attackedCoords = computer.randomMove(playerOne.playerBoard);
+    console.log(playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]);
+    console.log(attackedCoords);
+    const attackedCell = document.querySelector(
+      `[data-cords="${attackedCoords[0]}${attackedCoords[1]}"]`,
+    );
+    attackedCell.classList.add(
+      `${playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]}`,
+    );
+    if (isGameOver() === true) {
+      displayWinner(winnerFound);
+      computerGrid.removeEventListener("click", gameLoop);
+    }
+  }, 1000);
+}
+function gameController() {
+  const computerGrid = document.querySelector(".player-2");
+
+  computerGrid.addEventListener("click", gameLoop);
 }
 
 export { playerOne, computer, gameController, isGameOver };
