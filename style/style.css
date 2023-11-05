@@ -12,7 +12,15 @@ td {
 
 .draggable {
     display: inline-flex;
-    margin: 15px
+    margin-top: 15px;
+}
+
+#submarine {
+    margin-left: 28vw;
+}
+
+#destroyer {
+    margin-right: 28vw;
 }
 
 .ship-container {
@@ -70,6 +78,13 @@ h1 {
 body {
     color: white;
     background-color: black;
+}
+
+.start-game {
+    display: block;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* .drag-over {

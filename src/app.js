@@ -3,7 +3,7 @@ import { computer, playerOne, gameController } from "./game";
 import * as drag from "./drag";
 
 renderBoard(playerOne.playerBoard.board);
-renderBoard(computer.playerBoard.board);
+// renderBoard(computer.playerBoard.board);
 
 const ships = document.querySelectorAll(".draggable");
 let result;
@@ -16,28 +16,7 @@ ships.forEach((ship) => {
 });
 
 const cells = document.querySelectorAll(".player-1 TD");
-// function drop(e) {
-//   for (const num of result) {
-//     let cord = String(Number(e.target.dataset.cords) + num);
-//     cord = cord.length === 1 ? `0${cord}` : cord;
-//     const cell = document.querySelector(`[data-cords="${cord}"]`);
-//     cell.classList.add("ship");
-//   }
-//   e.target.classList.add("ship");
-//   const min =
-//     result[0] < 0
-//       ? String(result[0] + Number(e.target.dataset.cords))
-//       : e.target.dataset.cords;
-//   playerOne.playerBoard.placeShip(
-//     Number(min[0]),
-//     Number(min[1]),
-//     "horizontal",
-//     result.length + 1,
-//   );
-//   console.log(playerOne.playerBoard.board);
-// }
 
-// const ships = document.querySelectorAll(".draggable");
 ships.forEach((ship) => {
   ship.addEventListener("dragstart", drag.dragStart);
   ship.addEventListener("dragend", drag.dragEnd);
@@ -53,7 +32,29 @@ cells.forEach((cell) => {
   cell.addEventListener("dragover", drag.dragOver);
   cell.addEventListener("drop", (e) => {
     drag.drop(e, result);
+    console.log(result[0]);
+    let position;
+    if (result[0] >= 10) {
+      position = "vertical";
+    } else {
+      position = "horizontal";
+    }
+    const min =
+      result[0] < 0
+        ? String(result[0] + Number(e.target.dataset.cords))
+        : e.target.dataset.cords;
+    playerOne.playerBoard.placeShip(
+      Number(min[0]),
+      Number(min[1]),
+      position,
+      result.length + 1,
+    );
+    console.log(playerOne.playerBoard.board);
   });
 });
 
-// gameController();
+const startBtn = document.querySelector(".start-game");
+startBtn.addEventListener("click", () => {
+  renderBoard(computer.playerBoard.board);
+  gameController();
+});
