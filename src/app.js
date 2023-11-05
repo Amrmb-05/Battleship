@@ -58,3 +58,7 @@ startBtn.addEventListener("click", () => {
   renderBoard(computer.playerBoard.board);
   gameController();
 });
+
+const restartBtn = document.querySelector(".restart");
+// eslint-disable-next-line no-restricted-globals
+restartBtn.addEventListener("click", () => location.reload());

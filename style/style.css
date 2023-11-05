@@ -81,7 +81,7 @@ body {
     background-color: black;
 }
 
-.start-game {
+.start-game, .restart {
     display: block;
     margin-top: 15px;
     margin-right: auto;

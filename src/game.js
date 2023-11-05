@@ -33,7 +33,7 @@ function isGameOver() {
 
 function gameLoop(event) {
   const computerGrid = document.querySelector(".player-2");
-
+  const restartBtn = document.querySelector(".restart");
   if (event.target.tagName === "TD") {
     playerOne.attack(
       event.target.dataset.cords[0],
@@ -50,6 +50,8 @@ function gameLoop(event) {
     if (isGameOver() === true) {
       displayWinner(winnerFound);
       computerGrid.removeEventListener("click", gameLoop);
+      restartBtn.classList.toggle("hide");
+      return;
     }
     console.log(`Computer: ${computer.playerBoard}`);
   }
@@ -66,6 +68,7 @@ function gameLoop(event) {
     if (isGameOver() === true) {
       displayWinner(winnerFound);
       computerGrid.removeEventListener("click", gameLoop);
+      restartBtn.classList.toggle("hide");
     }
   }, 1000);
 }
