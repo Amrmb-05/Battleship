@@ -21,6 +21,7 @@ td {
     margin-left: 28vw;
 }
 
+
 #destroyer {
     margin-right: 28vw;
 }
@@ -62,9 +63,9 @@ td {
 .ship  {
     background-color: rgb(107, 107, 98);
 }
-/* .player-2 .ship {
+.player-2 .ship {
     background-color: black;
-} */
+}
 
 .player-1 .hit,  .player-2 .hit{
     background-color: rgb(47, 255, 113);
