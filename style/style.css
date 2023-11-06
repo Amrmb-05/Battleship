@@ -10,12 +10,14 @@ td {
     height: 25px
 }
 
-.draggable {
+.draggable{
     display: inline-flex;
     margin-top: 15px;
+    align-self: center;
+    /* margin-left: 28vw; */
 }
 
-#submarine {
+:nth-child(1 of .draggable) {
     margin-left: 28vw;
 }
 
