@@ -4,6 +4,13 @@ import * as drag from "./drag";
 
 renderBoard(playerOne.playerBoard.board);
 
+const startBtn = document.querySelector(".start-game");
+startBtn.addEventListener("click", () => {
+  startBtn.classList.toggle("hide");
+  renderBoard(computer.playerBoard.board);
+  gameController();
+});
+
 const ships = document.querySelectorAll(".draggable");
 let result;
 ships.forEach((ship) => {
@@ -48,15 +55,12 @@ cells.forEach((cell) => {
       position,
       result.length + 1,
     );
-    console.log(playerOne.playerBoard.board);
+    const ships = document.querySelectorAll(".draggable");
+    if (ships.length === 0) {
+      startBtn.disabled = false;
+    }
+    console.log(ships);
   });
-});
-
-const startBtn = document.querySelector(".start-game");
-startBtn.addEventListener("click", () => {
-  startBtn.classList.toggle("hide");
-  renderBoard(computer.playerBoard.board);
-  gameController();
 });
 
 const restartBtn = document.querySelector(".restart");

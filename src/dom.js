@@ -32,4 +32,5 @@ ships.forEach((ship) => {
     ship.classList.toggle("vertical");
   });
 });
+
 export { renderBoard, displayWinner };
