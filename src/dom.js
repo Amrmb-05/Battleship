@@ -23,8 +23,10 @@ function renderBoard(arr) {
 }
 
 function displayWinner(winner) {
-  const winMessage = document.querySelector(".winner-display");
-  winMessage.textContent = `${winner.name} is the Winner!`;
+  const winnerDisplay = document.querySelector(".winner-display");
+  const winnerMessage = document.createElement("h2");
+  winnerDisplay.insertBefore(winnerMessage, winnerDisplay.firstChild);
+  winnerMessage.textContent = `${winner.name} is the Winner!`;
 }
 const ships = document.querySelectorAll(".draggable");
 ships.forEach((ship) => {

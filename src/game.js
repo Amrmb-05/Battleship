@@ -7,8 +7,8 @@ const playerOneBoard = playerOne.playerBoard;
 const computerBoard = computer.playerBoard;
 let winnerFound = false;
 
-computerBoard.populate();
-// computerBoard.placeShip(0, 0, "horizontal", 3);
+// computerBoard.populate();
+computerBoard.placeShip(0, 0, "horizontal", 3);
 // computerBoard.placeShip(3, 8, "horizontal", 5);
 // computerBoard.placeShip(7, 2, "horizontal", 6);
 // computerBoard.placeShip(1, 4, "horizontal", 1);
@@ -34,6 +34,7 @@ function isGameOver() {
 function gameLoop(event) {
   const computerGrid = document.querySelector(".player-2");
   const restartBtn = document.querySelector(".restart");
+  const winnerDisplay = document.querySelector(".winner-display");
   if (event.target.tagName === "TD") {
     playerOne.attack(
       event.target.dataset.cords[0],
@@ -50,6 +51,7 @@ function gameLoop(event) {
     if (isGameOver() === true) {
       displayWinner(winnerFound);
       computerGrid.removeEventListener("click", gameLoop);
+      winnerDisplay.classList.toggle("hide");
       restartBtn.classList.toggle("hide");
       return;
     }
@@ -68,6 +70,7 @@ function gameLoop(event) {
     if (isGameOver() === true) {
       displayWinner(winnerFound);
       computerGrid.removeEventListener("click", gameLoop);
+      winnerDisplay.classList.toggle("hide");
       restartBtn.classList.toggle("hide");
     }
   }, 1000);

@@ -5,6 +5,9 @@ table, td {
     margin-right: auto;
 }
 
+body {
+    position: relative
+}
 td {
     width: 25px;
     height: 25px
@@ -91,13 +94,6 @@ body {
     margin-left: auto;
 }
 
-
-.hide {
-    display: none;
-}
-
-
-
 /* CSS */
 button {
   appearance: none;
@@ -143,3 +139,26 @@ button:active {
 /* .drag-over {
     border: dashed 3px red;
 } */
+
+.winner-display {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    position: absolute;
+    padding: 16px 16px;
+    /* height: 200px; */
+    left: 40%;
+    right: 40%;
+    top: 40%;
+    
+    /* border-color: white; */
+}
+
+.hide {
+    display: none;
+}
