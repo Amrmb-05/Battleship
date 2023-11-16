@@ -7,8 +7,8 @@ const playerOneBoard = playerOne.playerBoard;
 const computerBoard = computer.playerBoard;
 let winnerFound = false;
 
-// computerBoard.populate();
-computerBoard.placeShip(0, 0, "horizontal", 3);
+computerBoard.populate();
+// computerBoard.placeShip(0, 0, "horizontal", 3);
 // computerBoard.placeShip(3, 8, "horizontal", 5);
 // computerBoard.placeShip(7, 2, "horizontal", 6);
 // computerBoard.placeShip(1, 4, "horizontal", 1);
@@ -25,7 +25,6 @@ function isGameOver() {
   }
   if (computer.playerBoard.allSunk() === true) {
     winnerFound = playerOne;
-    console.log(winnerFound);
     return true;
   }
   return false;
@@ -55,12 +54,9 @@ function gameLoop(event) {
       restartBtn.classList.toggle("hide");
       return;
     }
-    console.log(`Computer: ${computer.playerBoard}`);
   }
   setTimeout(() => {
     const attackedCoords = computer.randomMove(playerOne.playerBoard);
-    console.log(playerOneBoard.board[attackedCoords[0]][attackedCoords[1]]);
-    console.log(attackedCoords);
     const attackedCell = document.querySelector(
       `[data-cords="${attackedCoords[0]}${attackedCoords[1]}"]`,
     );

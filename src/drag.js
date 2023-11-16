@@ -22,7 +22,6 @@ const getDropTargetsHorizontalPosition = (element, x) => {
   const box = element.getBoundingClientRect();
   const elementWidth = box.width;
   const numberOfBoxes = Math.floor(elementWidth / 25);
-  console.log(numberOfBoxes);
   const mousePosition = x - box.x;
   const boxNumber = Math.ceil(mousePosition / 25);
 
@@ -40,7 +39,6 @@ const getDropTargetsVerticalPosition = (element, y) => {
   const box = element.getBoundingClientRect();
   const elementHeight = box.height;
   const numberOfBoxes = Math.floor(elementHeight / 25);
-  console.log(numberOfBoxes);
   const mousePosition = y - box.y;
   const boxNumber = Math.ceil(mousePosition / 25);
   for (let i = 1; i < numberOfBoxes + 1; i += 1) {
@@ -50,8 +48,6 @@ const getDropTargetsVerticalPosition = (element, y) => {
   }
   return result;
 };
-
-//   const getDropCoordinates
 
 // eslint-disable-next-line no-restricted-globals
 const drop = (e, arr) => {

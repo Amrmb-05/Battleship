@@ -38,7 +38,6 @@ cells.forEach((cell) => {
   cell.addEventListener("dragover", drag.dragOver);
   cell.addEventListener("drop", (e) => {
     drag.drop(e, result);
-    console.log(result[0]);
     let position;
     if (result[0] >= 10) {
       position = "vertical";
@@ -59,7 +58,6 @@ cells.forEach((cell) => {
     if (ships.length === 0) {
       startBtn.disabled = false;
     }
-    console.log(ships);
   });
 });
 

@@ -15,8 +15,6 @@ function renderBoard(arr) {
       const td = document.createElement("td");
       td.dataset.cords = `${i}${j}`;
       if (arr[i][j] instanceof Ship) td.classList.add("ship");
-      // if (arr[i][j] === "hit") td.classList.add("hit");
-      // if (arr[i][j] === "miss") td.classList.add("miss");
       tr.appendChild(td);
     }
   }
